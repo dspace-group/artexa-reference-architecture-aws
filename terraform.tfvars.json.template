@@ -1,0 +1,77 @@
+
+{
+  "application_loadbalancer": false,
+  "artexa_instances": {
+    "production": {
+      "backup_retention": 7,
+      "db_instance_type_artexa": "db.t3.large",
+      "db_instance_type_keycloak": "db.t3.large",
+      "enable_backup_service": true,
+      "enable_deletion_protection": true,
+      "enable_irsa": true,
+      "enable_keycloak": true,
+      "k8s_namespace": "artexa",
+      "name": "production",
+      "postgresqlMaxStorage": 100,
+      "postgresqlMaxStorageKeycloak": 100,
+      "postgresqlStorage": 20,
+      "postgresqlStorageKeycloak": 20,
+      "postgresqlVersion": "16",
+      "secretname": "aws-artexa-dev-production"
+    }
+  },
+  "certificate_arn": "",
+  "cluster_endpoint_private_access": false,
+  "cluster_endpoint_public_access": true,
+  "cluster_endpoint_public_access_cidrs": [
+    "0.0.0.0/0"
+  ],
+  "codemeter": "https://www.wibu.com/support/user/user-software/file/download/13346.html?tx_wibudownloads_downloadlist%5BdirectDownload%5D=directDownload&tx_wibudownloads_downloadlist%5BuseAwsS3%5D=0&cHash=8dba7ab094dec6267346f04fce2a2bcd",
+  "enable_patching": false,
+  "infrastructurename": "artexa",
+  "install_schedule": "cron(0 3 * * ? *)",
+  "kubernetesVersion": "1.29",
+  "license_server": false,
+  "license_server_type": "t3a.medium",
+  "linuxNodeCountMax": 12,
+  "linuxNodeCountMin": 1,
+  "linuxNodeSize": [
+    "m5a.4xlarge",
+    "m5a.8xlarge"
+  ],
+  "maintainance_duration": 3,
+  "map_accounts": [],
+  "map_roles": [],
+  "map_users": [],
+  "private_subnet_filter": [
+    {
+      "name": "subnet-id",
+      "values": [
+        "subnet-0490ffe38d62c4c4c"
+      ]
+    }
+  ],
+  "public_subnet_filter": [
+    {
+      "name": "subnet-id",
+      "values": [
+        "subnet-0490ffe38d62c4c4c"
+      ]
+    }
+  ],
+  "region": "eu-central-1",
+  "scan_schedule": "cron(0 0 * * ? *)",
+  "tags": {},
+  "vpcCidr": "10.1.0.0/18",
+  "vpcId": "",
+  "vpcPrivateSubnets": [
+    "10.1.0.0/22",
+    "10.1.4.0/22",
+    "10.1.8.0/22"
+  ],
+  "vpcPublicSubnets": [
+    "10.1.12.0/22",
+    "10.1.16.0/22",
+    "10.1.20.0/22"
+  ]
+}

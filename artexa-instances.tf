@@ -1,0 +1,26 @@
+module "artexa_instance" {
+  source                       = "./modules/artexa-aws-instance"
+  for_each                     = var.artexa_instances
+  region                       = var.region
+  infrastructurename           = var.infrastructurename
+  tags                         = var.tags
+  name                         = each.value.name
+  postgresqlVersion            = each.value.postgresqlVersion
+  postgresqlStorage            = each.value.postgresqlStorage
+  postgresqlMaxStorage         = each.value.postgresqlMaxStorage
+  postgresqlStorageKeycloak    = each.value.postgresqlStorageKeycloak
+  postgresqlMaxStorageKeycloak = each.value.postgresqlMaxStorageKeycloak
+  db_instance_type_keycloak    = each.value.db_instance_type_keycloak
+  db_instance_type_artexa      = each.value.db_instance_type_artexa
+  secretname                   = each.value.secretname
+  enable_deletion_protection   = each.value.enable_deletion_protection
+  enable_backup_service        = each.value.enable_backup_service
+  enable_irsa                  = each.value.enable_irsa
+  backup_retention             = each.value.backup_retention
+  postgresql_security_group_id = module.security_group.security_group_id
+  private_subnet_ids           = local.private_subnet_ids
+  eks_oidc_provider_arn        = module.eks.eks_oidc_provider_arn
+  eks_oidc_issuer_url          = module.eks.eks_oidc_issuer_url
+  enable_keycloak              = each.value.enable_keycloak
+  k8s_namespace                = each.value.k8s_namespace
+}

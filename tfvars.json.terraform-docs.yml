@@ -1,0 +1,11 @@
+formatter: tfvars json
+
+output:
+  file: "terraform.tfvars.json.template"
+  mode: replace
+  template: |-
+
+    {{ .Content }}
+
+settings:
+  description: true
