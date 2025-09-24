@@ -11,3 +11,7 @@ controller:
       service.beta.kubernetes.io/aws-load-balancer-internal: "${internal}"
       service.beta.kubernetes.io/aws-load-balancer-target-node-labels: kubernetes.io/os=linux
       service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+  config:
+    proxy-send-timeout: 300
+    proxy-read-timeout: 300
+    proxy-connect-timeout: 300
