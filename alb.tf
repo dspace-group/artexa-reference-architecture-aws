@@ -8,6 +8,7 @@ resource "aws_lb" "application-loadbalancer" {
   subnets                    = local.public_subnet_ids
   # [ELB.6] Application, Gateway, and Network Load Balancers should have deletion protection enabled
   enable_deletion_protection = true
+  idle_timeout               = 300
   tags                       = var.tags
 }
 
