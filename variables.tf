@@ -37,7 +37,7 @@ variable "linuxNodeCountMax" {
 variable "kubernetesVersion" {
   type        = string
   description = "The version of the EKS cluster."
-  default     = "1.29"
+  default     = "1.34"
 }
 
 variable "vpcCidr" {

@@ -16,12 +16,14 @@ module "eks" {
   cluster_endpoint_public_access_cidrs = var.cluster_endpoint_public_access_cidrs
   managed_node_groups = {
     default = {
-      node_group_name = "default"
-      min_size        = var.linuxNodeCountMin
-      max_size        = var.linuxNodeCountMax
-      desired_size    = var.linuxNodeCountMin
-      subnet_ids      = local.private_subnet_ids
-      instance_types  = var.linuxNodeSize
+      node_group_name    = "default"
+      min_size           = var.linuxNodeCountMin
+      max_size           = var.linuxNodeCountMax
+      desired_size       = var.linuxNodeCountMin
+      subnet_ids         = local.private_subnet_ids
+      instance_types     = var.linuxNodeSize
+      ami_type           = "BOTTLEROCKET_x86_64"
+      launch_template_os = "bottlerocket"
     }
   }
 }
@@ -47,5 +49,8 @@ module "eks-addons" {
     create_namespace  = true
     dependency_update = true
     version           = "4.12.2",
+  }
+  cluster_autoscaler_helm_config = {
+    version = "9.52.1"
   }
 }
