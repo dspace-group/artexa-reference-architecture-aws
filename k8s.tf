@@ -50,4 +50,7 @@ module "eks-addons" {
     dependency_update = true
     version           = "4.12.2",
   }
+  cluster_autoscaler_helm_config = {
+    version = "9.52.1"
+  }
 }
