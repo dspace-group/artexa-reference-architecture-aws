@@ -6,8 +6,10 @@ resource "aws_db_subnet_group" "database" {
 
 resource "aws_db_instance" "artexa" {
 
-  allocated_storage                   = var.postgresqlStorage
-  max_allocated_storage               = var.postgresqlMaxStorage
+  allocated_storage     = var.postgresqlStorage
+  max_allocated_storage = var.postgresqlMaxStorage
+  storage_type          = "gp3"
+
   auto_minor_version_upgrade          = true # [RDS.13] RDS automatic minor version upgrades should be enabled
   engine                              = "postgres"
   engine_version                      = var.postgresqlVersion
